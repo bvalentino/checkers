@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+
+.form-label {
+  @apply block text-gray-700;
+}
+
+.form-input, .form-textarea {
+  @apply block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0;
+}
+
+@tailwind utilities;
