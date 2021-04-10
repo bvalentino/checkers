@@ -8,6 +8,7 @@ class GameController < ApplicationController
   end
 
   private
+    DEFAULT_SIZE = 8
 
     def set_state
       @state = params[:state].presence || default_state
@@ -16,7 +17,7 @@ class GameController < ApplicationController
     def set_board
       @board = Board.new(
         state: @state.split.collect { |row| row.split(',') },
-        size: [params[:board_size].to_i, 8].max
+        size: (params[:board_size] || DEFAULT_SIZE).to_i
       )
     end
 

@@ -7,6 +7,8 @@ class Board
       row.each_with_index do |value, column_index|
       next if value == empty_space
 
+      value = value.downcase
+
       @pieces << Piece.new(
         board: self,
         row: row_index,
@@ -29,7 +31,7 @@ class Board
   def next_moves_of_player(player)
     player_pieces = pieces.select { |piece| piece.player == player }
 
-    player_pieces.collect(&:next_moves).flatten.compact
+    player_pieces.collect(&:next_moves).flatten.compact.uniq
   end
 
   private
