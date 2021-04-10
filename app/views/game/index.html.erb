@@ -1,0 +1,12 @@
+<div class="container mx-auto p-6">
+  <h1 class="text-3xl">Checkers</h1>
+
+  <div class="mt-3 md:flex md:space-x-6 space-y-12 md:space-y-0">
+    <%= render 'form', board: @board, turn: @turn, state: @state %>
+
+    <div class="flex-1 min-w-0 space-y-3">
+      <%= render 'moves_available_alert', moves: @next_moves, player: @turn %>
+      <%= render 'board', board: @board, moves: @next_moves %>
+    </div>
+  </div>
+</div>

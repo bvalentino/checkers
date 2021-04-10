@@ -1,0 +1,23 @@
+<%= form_with url: :root, method: :get, html: { autocomplete: 'off', class: 'md:max-w-xs w-full' } do |f| %>
+  <label class="block">
+    <span class="form-label"><%= t 'turn' %></span>
+    <%= f.text_field :turn, class: 'form-input mt-1 font-mono', value: turn %>
+  </label>
+
+  <label class="block mt-3">
+    <span class="form-label"><%= t 'board_size' %></span>
+    <%= f.text_field :board_size, class: 'form-input mt-1', value: board.size %>
+  </label>
+
+  <label class="block mt-3">
+    <span class="form-label"><%= t 'board' %></span>
+    <%= f.text_area :state, class: 'form-textarea mt-1 font-mono tracking-widest', value: state, rows: board.size %>
+  </label>
+
+  <div class="mt-6 space-y-3">
+    <%= f.submit t('show_next_moves'), class: 'inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-full justify-center cursor-pointer' %>
+    <% if params[:state].present? %>
+      <%= link_to t('reset'), :root, class: 'inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-full justify-center cursor-pointer' %>
+    <% end %>
+  </div>
+<% end %>

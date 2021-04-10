@@ -1,0 +1,24 @@
+<div class="divide-y-2 max-w-md mx-auto font-bold bg-gray-800 text-white rounded-md divide-white overflow-hidden">
+  <div class="flex flex-nowrap divide-x-2 divide-white">
+    <div class="px-1 w-8 bg-gray-100">
+      &nbsp;
+    </div>
+    <% board.size.times do |column| %>
+      <div class="flex-1 flex justify-center items-center bg-gray-300 text-gray-500 text-xs font-medium py-1">
+        <%= column %>
+      </div>
+    <% end %>
+  </div>
+  <% board.size.times do |row| %>
+    <div class="flex flex-nowrap divide-x-2 divide-white">
+      <div class="flex justify-center items-center bg-gray-300 text-gray-500 text-xs font-medium px-1 w-8">
+        <%= row %>
+      </div>
+      <% board.size.times do |column| %>
+        <div class="flex-1 flex justify-center items-center p-1 h-12 w-12 font-mono <%= 'bg-yellow-100' if moves.any? { |move| move[:row] == row && move[:column] == column } %>">
+          <%= board.get_piece(row, column).to_s rescue '&nbsp;'.html_safe %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
