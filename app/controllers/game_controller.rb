@@ -22,7 +22,7 @@ class GameController < ApplicationController
     end
 
     def set_turn
-      @turn = params[:turn] || 'o'
+      @turn = (params[:turn] || 'o').downcase
     end
 
     def set_next_moves
