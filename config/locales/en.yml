@@ -8,4 +8,4 @@ en:
     other: "%{count} moves"
   reset: Reset
   show_next_moves: Show next moves
-  turn: turn
+  turn: Turn
